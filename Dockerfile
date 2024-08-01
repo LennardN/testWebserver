@@ -1,5 +1,5 @@
 FROM node
 COPY . .
-CMD ["npm", "update"]
+RUN npm update
 CMD ["node", "index.js"]
 EXPOSE 8080
