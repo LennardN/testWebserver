@@ -1,5 +1,8 @@
 FROM node
-COPY . .
+
+RUN mkdir ./webserver/
+COPY [--exclude=Dockerfile] . ./webserver/
+
 RUN npm update
-CMD ["node", "./index.js"]
+CMD ["node", "./webserver/index.js"]
 EXPOSE 8080/tcp
