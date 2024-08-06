@@ -11,7 +11,11 @@ var connection = mysql.createConnection({
 
 const PORT = 8080
 const app = express()
+try{
 connection.connect();
+}catch(e){
+    console.log("couldnt connect")
+}
 
 app.use(express.static(path.join(__dirname, 'client')))
 
