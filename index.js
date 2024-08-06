@@ -3,9 +3,9 @@ const path = require('path')
 var mysql = require('mysql')
 
 var connection = mysql.createConnection({
-  host     : '172.17.0.2',
+  host     : 'mysqltest',
+  user: 'root',
   password : '123',
-  database : 'testdb'
 });
 
 const PORT = 8080
