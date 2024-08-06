@@ -1,8 +1,16 @@
 const express = require('express')
 const path = require('path')
+var mysql      = require('mysql');
+var connection = mysql.createConnection({
+  host     : 'mysqltest:33060',
+  user     : 'root',
+  password : '123',
+  database : 'testdb'
+});
 
 const PORT = 8080
 const app = express()
+connection.connect();
 
 app.use(express.static(path.join(__dirname, 'client')))
 
@@ -14,7 +22,11 @@ app.use(express.json())
 
 app.post('/login', (req, res) => {
     console.log(req.body)
-    res.status(200).send({login: "OK"})
+    connection.query('SELECT * FROM testdb.testtable', function (error, results, fields) {
+        if (error) throw error;
+        console.log('Result Name is: ', results[0].name);
+        res.status(200).send({username: results[0].name})
+    })
 })
 
 const getIPv4 = () => {
