@@ -42,3 +42,5 @@ const getIPv4 = () => {
     }
     return '0.0.0.0'
 }
+
+connection.end();
