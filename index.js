@@ -1,6 +1,7 @@
 const express = require('express')
 const path = require('path')
-var mysql      = require('mysql');
+var mysql = require('mysql')
+
 var connection = mysql.createConnection({
   host     : 'mysqltest:33060',
   user     : 'root',
