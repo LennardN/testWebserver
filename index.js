@@ -3,7 +3,7 @@ const path = require('path')
 var mysql = require('mysql')
 
 var connection = mysql.createConnection({
-  host     : 'mysqltest:3306',
+  host     : 'mysqltest',
   user     : '',
   password : '123',
   database : 'testdb'
