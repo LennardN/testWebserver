@@ -3,7 +3,7 @@ const path = require('path')
 var mysql = require('mysql')
 
 var connection = mysql.createConnection({
-  host     : 'mysqltest:3306',
+  host     : '172.17.0.2',
   password : '123',
   database : 'testdb'
 });
@@ -13,7 +13,11 @@ const app = express()
 
 connection.connect(function(err) {
     console.log("try to connect");
-    if(err) console.log("couldnt connect")
+    if(err){
+        console.log("couldnt connect")
+    } else {
+        console.log("connected :)")
+    }
   });
 
 app.use(express.static(path.join(__dirname, 'client')))
