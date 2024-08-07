@@ -33,7 +33,7 @@ app.use(express.json())
 app.post('/login', (req, res) => {
     console.log(req.body)
     connection.query('SELECT * FROM testdb.testtable', function (error, results, fields) {
-        if (error) console.log("query error", err)
+        if (error) console.log("query error", error)
         console.log('query result: ', results[0].name)
         res.status(200).send({username: results[0].name})
       })
