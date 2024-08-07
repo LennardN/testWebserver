@@ -32,7 +32,12 @@ app.use(express.json())
 
 app.post('/login', (req, res) => {
     console.log(req.body)
-    res.status(200).send({username: "test"})
+    connection.query('SELECT * FROM testdb.testtable', function (error, results, fields) {
+        if (error) console.log("query error", err)
+        console.log('query result: ', results[0].name)
+        res.status(200).send({username: results[0].name})
+      })
+    
 })
 
 const getIPv4 = () => {

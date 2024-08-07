@@ -18,5 +18,6 @@ const login = () => {
         }
     }).then(data => {
         console.log(data)
+        $(document.createTextNode(data));
     })
 }
