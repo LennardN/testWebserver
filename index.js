@@ -1,12 +1,12 @@
 const express = require('express')
 const path = require('path')
-var mysql = require('mysql')
+const mysql = require('mysql')
 
 var connection = mysql.createConnection({
-  host: 'mysqltest',
+  host: 'mysqltest:3306',
   user: 'root',
   password: '123',
-  database: 'testdb'
+  database: 'testdb',
 });
 
 const PORT = 8080
