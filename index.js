@@ -15,6 +15,7 @@ const app = express()
 connection.connect(function(err) {
     console.log("try to connect");
     if(err){
+        console.log(err)
         console.log("couldnt connect")
     } else {
         console.log("connected :)")
