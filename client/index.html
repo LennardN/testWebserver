@@ -28,7 +28,7 @@
         <div>
           <label for="search">Search for:</label>
           <input type="text" id="searchinput" name="search">
-          <button type="submit" class="button" id="search" onclick="register()">Search</button>
+          <button type="submit" class="button" id="search" onclick="search()">Search</button>
         </div>
         <div class="table_component" role="region" tabindex="0">
           <table>
@@ -39,7 +39,8 @@
                     <th>Gender</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="tablebody">
+
             </tbody>
           </table>
         </div>

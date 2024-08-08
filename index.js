@@ -31,15 +31,34 @@ app.listen(PORT, () => {
 app.use(express.json())
 
 app.post('/register', (req, res) => {
-    console.log(req.body)
-    //mysql -p -e "SELECT * FROM testdb.users WHERE first_name = 'Nerte';"
-    connection.query('SELECT * FROM testdb.testtable', function (error, results, fields) {
-        if (error) throw error
+    connection.query(
+        `INSERT INTO testdb.users (first_name, last_name, gender) VALUES ('${req.body.firstname}','${req.body.lastname}','${req.body.gender}');`
+        , function (error, results, fields) {
+        
+        if (error){
+            res.status(500).send()
+            console.log(error)
+        } 
         console.log('query result: ', results)
         res.status(200).send()
       })
-    
 })
+
+
+app.post('/search', (req, res) => {
+    connection.query(
+        `SELECT * FROM testdb.users WHERE '${req.body.search}' = first_name OR '${req.body.search}' = last_name OR '${req.body.search}' = gender LIMIT 10`
+        , function (error, results, fields) {
+        
+        if (error){
+            res.status(500).send()
+            console.log(error)
+        } 
+        console.log('query result: ', results)
+        res.status(200).send(results)
+      })
+})
+
 
 const getIPv4 = () => {
     const networks = require('os').networkInterfaces();
