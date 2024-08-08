@@ -10,11 +10,11 @@ const login = () => {
     })
     .then(res => {
         if(res.ok){
-            $('#login').text("Succesful")
+            $('#register').text("Succesful")
             return res.json()
         }else{
             console.log(res)
-            $('#login').text("Failed")
+            $('#register').text("Failed")
         }
     }).then(data => {
         console.log(data)
