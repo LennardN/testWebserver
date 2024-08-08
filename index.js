@@ -30,13 +30,13 @@ app.listen(PORT, () => {
 
 app.use(express.json())
 
-app.post('/login', (req, res) => {
+app.post('/register', (req, res) => {
     console.log(req.body)
     //mysql -p -e "SELECT * FROM testdb.users WHERE first_name = 'Nerte';"
     connection.query('SELECT * FROM testdb.testtable', function (error, results, fields) {
         if (error) throw error
         console.log('query result: ', results)
-        res.status(200).send({name: results[0].name})
+        res.status(200).send()
       })
     
 })

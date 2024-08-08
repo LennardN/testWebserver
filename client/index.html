@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>My Website</title>
     <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./style.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   </head>
   <body>
@@ -13,9 +14,9 @@
         <h1>User-Database</h1>  
         <div>
           <label for="firstname">First Name:</label>
-          <input type="text" id="search" name="search">
+          <input type="text" id="firstname" name="firstname">
           <label for="lastname">Last Name:</label>
-          <input type="text" id="search" name="search">
+          <input type="text" id="lastname" name="lastname">
           <label for="gender">Gender:</label>
           <select name="gender" id="gender">
             <option value="Male">Male</option>
@@ -27,7 +28,20 @@
         <div>
           <label for="search">Search for:</label>
           <input type="text" id="searchinput" name="search">
-          <button type="submit" class="button" id="search" onclick="search()">Search</button>
+          <button type="submit" class="button" id="search" onclick="register()">Search</button>
+        </div>
+        <div class="table_component" role="region" tabindex="0">
+          <table>
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Gender</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
         </div>
         
     </main>
