@@ -35,10 +35,6 @@ const search = () => {
         }
     }).then(data => {
         $('#tablebody').empty()
-        console.log(data)
-        console.log(data.length)
-        console.log(data[0])
-        console.log(data[0].last_name)
         for(let i = 0; i < data.length; i++){
             console.log("userid:", data[i].id)
             $('#tablebody').append(`<tr><td>${data[i].first_name}</td><td>${data[i].last_name}</td><td>${data[i].gender}</td></tr>`);
